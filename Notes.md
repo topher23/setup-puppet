@@ -2,7 +2,7 @@
 
 ## Add puppetlabds repository
 
-```bash
+```
   # apt-get update
   ...
   Reading package lists... Done
