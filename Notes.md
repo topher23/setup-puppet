@@ -2,6 +2,7 @@
 
 ## Add puppetlabds repository
 
+```bash
   # apt-get update
   ...
   Reading package lists... Done
@@ -9,3 +10,6 @@
 
   $ wget -qO - https://apt.puppetlabs.com/pubkey.gpg | sudo apt-key add -
   Ok
+```
+
+
