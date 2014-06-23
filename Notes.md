@@ -69,3 +69,12 @@ test puppet configs
 puppet master --configprint all
 ```
 
+don't forget that prerequisites are:
+* lsb-release
+* puppetdb-terminus
+
+
+
+
+
+
