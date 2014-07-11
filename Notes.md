@@ -74,7 +74,8 @@ don't forget that prerequisites are:
 * puppetdb-terminus
 
 
-
-
+----
+  sudo apt-get -y purge libtomcat6-java tomcat6 tomcat6-common
+  sudo apt-get -y install tomcat7
 
 
