@@ -1,66 +1,64 @@
-class helloworld {
+
+class helloworld{
         file { '/tmp/test':
                 content => "test to see if puppet is running."
              }
-        package {"git":
-                ensure => "installed"
-                }
-        package {"openjdk-6-jdk":
+       package {["git", "openjdk-6-jdk"]:
                 ensure => "installed"
                 }
 
         schedule {"first":
-                range => "12:00 - 12:10"
+                range => "15:00 - 15:40",
                 repeat=> 2
                  }
         schedule {"second":
-                range => "12:10 - 12:20"
+                range => "15:40 - 15:45",
                 repeat=> 2
                  }
         schedule {"third":
-                range => "12:20 - 13:00"
+                range => "15:45 - 17:00",
                 repeat=> 2
                  }
 
-
-
         if $hostname == "coors"
         {
-                package {"tomcat6":
+                package {"ensure tomcat6 coors":
+                        name => 'tomcat6',
                         schedule => "first",
                         ensure => "installed"
-                        }
-                file    {"/var/lib/tomcat6/webapps/sample.war":
-                        schedule => "first"
+                     }
+                file {"install sample app for tomcat6":
+                        path => "/var/lib/tomcat6/webapps/sample.war",
+                        schedule => "first",
                         source=> "puppet:///modules/helloworld/sample.war"
-                         }
-                package {"tomcat6":
-                        schedule => "third",
-                        ensure => "absent",
-                package {"tomcat7":
-                        schedule => "third",
-                        ensure => "installed"
+                      }
+                package {["tomcat6, tomcat6-common", "libtomcat6-java"]:
+                                schedule => "third",
+                                ensure => "absent"
                         }
-                file    {"/var/lib/tomcat7/webapps/sample.war":
-                        schedule => "third",
-                        source=> "puppet:///modules/helloworld/sample.war"
+                package {"ensure tomcat7 coors":
+                        name => 'tomcat7',
+                                schedule => "third",
+                                ensure => "installed"
+                        }
+                file    {"sample for tomcat7":
+                        path => "/var/lib/tomcat7/webapps/sample.war",
+                                schedule => "third",
+                                source=> "puppet:///modules/helloworld/sample.war"
+                     }
 
         }
-        elseif $hostname == "becks"
+        elsif $hostname == "becks"
         {
-                package {"tomcat6":
-                        schedule => "first",
-                        ensure => "absent"
-                        }
-                package {"tomcat7":
+                package {"ensure tomcat7 becks":
+                        name => 'tomcat7',
                         schedule => "second",
                         ensure => "installed"
+                     }
+                file    {"sample for tomcat7 becks":
+                        path => "/var/lib/tomcat7/webapps/sample.war",
+                                schedule => "second",
+                                source=> "puppet:///modules/helloworld/sample.war"
                         }
-                file    {"/var/lib/tomcat7/webapps/sample.war":
-                        schedule => "second",
-                        source=> "puppet:///modules/helloworld/sample.war"
-                         }
-
         }
-
 }
