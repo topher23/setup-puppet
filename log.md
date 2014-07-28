@@ -105,7 +105,16 @@ Be aware that these 2 configurations show different things:
  puppet config print route_file
 ```
 
-  
+next need to sign certificates of agent with master. Turn on agent for the first time and that should automatically submit a certificate to be signed on the master. on the master type
+
+```
+sudo puppet cert --list
+```
+this will list all the agents who sent a signature request. Then type:
+```
+sudo puppet cert --sign <NAME_OF_MACHINE_YOU_ARE_SIGNING>
+```
+ 
 
 
 
