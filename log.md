@@ -93,8 +93,17 @@ Read later:
 ```bash
  sudo puppet resource package puppetdb ensure=latest
  sudo puppet resource service puppetdb ensure=running enable=true
+ sudo puppet resource package puppetdb-terminus ensure=latest
 ```
 
+continue with [official docs](http://docs.puppetlabs.com/puppetdb/2.1/connect_puppet_master.html)
+
+Be aware that these 2 configurations show different things:
+
+```
+ puppet master --configprint route_file
+ puppet config print route_file
+```
 
   
 
