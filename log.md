@@ -47,7 +47,7 @@ $ ntpq -p
 
 # Install puppet
 
-From [here http://docs.puppetlabs.com/guides/install_puppet/install_debian_ubuntu.html]
+From [here](http://docs.puppetlabs.com/guides/install_puppet/install_debian_ubuntu.html)
 
 ```
  sudo apt-get install puppetmaster-passenger
