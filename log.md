@@ -115,9 +115,10 @@ this will list all the agents who sent a signature request. Then type:
 sudo puppet cert --sign <NAME_OF_MACHINE_YOU_ARE_SIGNING>
 ```
  
+Next step is to test the connection to see if it is working. On the agent type:
+```
+sudo puppet agent -t
+```
 
-
-
-
-
+If the result is all green, Success!
 
