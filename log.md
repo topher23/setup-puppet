@@ -129,6 +129,7 @@ First step is to install puppetboard through pip.
 # Graphs
 
 * https://developers.google.com/chart/interactive/docs/gallery/orgchart
-
+* http://codepen.io/VividD/pen/fIFJt
+* 
 
 
