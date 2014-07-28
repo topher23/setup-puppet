@@ -51,7 +51,54 @@ From [here](http://docs.puppetlabs.com/guides/install_puppet/install_debian_ubun
 
 ```
  sudo apt-get install puppetmaster-passenger
+ sudo apt-get install puppetmaster
+ sudo apt-get update
+ sudo puppet resource package puppet ensure=latest
 ```
+
+_Note:_ Ignore the warning:
+
+```
+Warning: Setting templatedir is deprecated. See http://links.puppetlabs.com/env-settings-deprecations
+   (at /usr/lib/ruby/vendor_ruby/puppet/settings.rb:1095:in `block in issue_deprecations')
+```
+
+```
+sudo service puppetmaster restart
+```
+
+Edit the conf file with these options underneath master:
+```
+dns_alt_names = puppet, master.local, keg.swift.com
+```
+and these options underneath agent (add agent section if one if not there):
+```
+runinterval=30s
+```
+
+## Check puppet version
+
+```bash
+$ puppet --version
+$ sudo reboot
+```
+
+Read later:
+ * http://docs.puppetlabs.com/puppet/latest/reference/config_about_settings.html
+ * http://docs.puppetlabs.com/puppet/latest/reference/config_file_main.html
+ * http://docs.puppetlabs.com/guides/install_puppet/upgrading.html
+
+## Install puppetdb
+
+```bash
+ sudo puppet resource package puppetdb ensure=latest
+ sudo puppet resource service puppetdb ensure=running enable=true
+```
+
+
+  
+
+
 
 
 
