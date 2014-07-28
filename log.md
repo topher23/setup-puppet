@@ -123,6 +123,7 @@ sudo puppet agent -t
 If the result is all green, Success! Now time to configure/set up puppetboard
 First step is to install puppetboard through pip.
 ```
+```
 
 
 # Graphs
