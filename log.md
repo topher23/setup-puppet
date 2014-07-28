@@ -120,5 +120,14 @@ Next step is to test the connection to see if it is working. On the agent type:
 sudo puppet agent -t
 ```
 
-If the result is all green, Success!
+If the result is all green, Success! Now time to configure/set up puppetboard
+First step is to install puppetboard through pip.
+```
+
+
+# Graphs
+
+* https://developers.google.com/chart/interactive/docs/gallery/orgchart
+
+
 
